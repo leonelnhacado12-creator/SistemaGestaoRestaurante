@@ -1,0 +1,16 @@
+VERIFICAÇÕES REALIZADAS NESTA ENTREGA
+- Compilação de todas as classes de produção com javac 21 concluída sem erros.
+- Adicionado teste JUnit para geração do recibo PDF (executável com Maven/NetBeans).
+- Implementada autenticação persistente com três perfis, navegação por permissões, filtros/ordenação e recibos PDF.
+- Pedidos históricos, itens, estado e pagamento são recuperados do MySQL no arranque.
+- Relatórios CSV de produtos, promoções e pedidos usam UTF-8, separador compatível com Excel e linhas correctamente terminadas.
+- Validações de campos obrigatórios, valores positivos, descontos, utilizadores e senhas estão centralizadas em Validador.
+
+LIMITAÇÃO DE VALIDAÇÃO
+Este terminal não possui o comando Maven; por isso, o teste JUnit não foi executado aqui. A compilação direta com javac confirmou todos os fontes de produção. Execute `mvn test` a partir do NetBeans/Maven instalado para a verificação completa.
+
+NOTAS
+- Configure e inicie MySQL antes de executar para obter persistência real.
+- Sem MySQL, a aplicação inicia em modo temporário em memória.
+- Pagamentos são simulações académicas.
+- A baixa automática de ingredientes por receita permanece fora do escopo desta versão.

@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS gestao_restaurante CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE gestao_restaurante;
+-- As tabelas são criadas automaticamente por InicializadorBD ao iniciar a aplicação.
+
+-- Gestão de stock e auditoria dos movimentos
+CREATE TABLE IF NOT EXISTS stock_itens (
+ id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(120) NOT NULL, categoria VARCHAR(80) NOT NULL,
+ unidade VARCHAR(20) NOT NULL, quantidade DECIMAL(14,3) NOT NULL DEFAULT 0,
+ stock_minimo DECIMAL(14,3) NOT NULL DEFAULT 0, criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ actualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS movimentos_stock (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY, item_id INT NOT NULL, tipo VARCHAR(20) NOT NULL,
+ quantidade DECIMAL(14,3) NOT NULL, saldo_depois DECIMAL(14,3) NOT NULL, motivo VARCHAR(255),
+ utilizador VARCHAR(80) NOT NULL DEFAULT 'gerente', data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY (item_id) REFERENCES stock_itens(id) ON DELETE RESTRICT
+);
