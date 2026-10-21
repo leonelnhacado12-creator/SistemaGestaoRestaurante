@@ -1,0 +1,20 @@
+# Maven / Java
+target/
+*.class
+*.jar
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+.nb-gradle/
+
+# IDEs / sistema operativo
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Configuração local e segredos
+.env
+*.local.properties
